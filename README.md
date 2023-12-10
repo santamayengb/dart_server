@@ -5,15 +5,15 @@
 
         dart_frog build
         
-goto build
+goto build directory and build docker image
 
         docker build -t dart_server .
     
-docker tag image_name:tag santamayengb/image_name
+docker commit
 
         docker tag dart_server:latest santamayengb/dart_server:1.0.0
         
-docker push santamayengb/image_name
+docker push 
     
         docker push santamayengb/dart_server
         
