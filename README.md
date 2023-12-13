@@ -11,11 +11,11 @@ goto build directory and build docker image
     
 docker commit
 
-        docker tag dart_server:latest santamayengb/dart_server:1.0.0
+        docker tag dart_server:latest santamayengb/dart_server:1.0.4
         
 docker push 
     
-        docker push santamayengb/dart_server
+        docker push santamayengb/dart_server:1.0.4
         
 #####
         
