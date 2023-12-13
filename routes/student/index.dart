@@ -32,15 +32,21 @@ Future<Response> handleGetRequest(RequestContext context) async {
 }
 
 Future<Response> handlePostRequest(RequestContext context) async {
-  // Assuming you want to create a new student record with data from the request
-  // final student = context.read<FrogMysqlClient>();
-
-  // Retrieve data from the request, adapt this part based on your needs
   final formData = await context.request.formData();
-  if (!formData.containsKey('name') || !formData.containsKey('age')) {
+  if (!formData.containsKey('name') && !formData.containsKey('age')) {
+    Response(
+      statusCode: 400,
+      body: 'Missing name and age parameters ',
+    );
+  } else if (!formData.containsKey('name')) {
     return Response(
       statusCode: 400,
-      body: 'Missing parameters',
+      body: 'Missing name parameters ',
+    );
+  } else if (!formData.containsKey('age')) {
+    return Response(
+      statusCode: 400,
+      body: 'Missing age parameters',
     );
   }
   return Response.json(body: {'form_data': formData.fields});
